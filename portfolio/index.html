@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculo</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.es.gov.br/fonts/font-awesome/css/font-awesome.min.css" />
+  <link rel="shortcut icon" type="imagex/png" href="images/minha-foto.jpg" />
+  <script>
+    // Função para mostrar/ocultar o formulário de contato
+    function toggleContactForm() {
+      const form = document.getElementById('contact-form');
+      form.style.display = form.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Função para validar o formulário
+    function validateForm(event) {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      let valid = true;
+
+      // Validação do campo Nome (não pode ser vazio)
+      if (name.trim() === "") {
+        alert("O campo 'Nome' não pode estar vazio.");
+        valid = false;
+      }
+
+      // Validação do campo email (deve ser um email válido)
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!emailPattern.test(email)) {
+        alert("Por favor, insira um e-mail válido.");
+        valid = false;
+      }
+
+      // Validação do campo mensagem (não pode ser vazio)
+      if (message.trim() === "") {
+        alert("O campo 'Mensagem' não pode estar vazio.");
+        valid = false;
+      }
+
+      // Se a validação falhar, não envia o formulário
+      if (!valid) {
+        event.preventDefault();  // Impede o envio
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <!--Denzel Washington da Cunha Marques - 4575991-->
+  <!--Criando o menu de navegação para linkar outras partes da pagina.-->
+  <div class="menu">
+    <div class="content-menu">
+      <a href="#about" title="Sobre Mim">
+        <i class="fa fa-user-o fa-2x"></i>
+      </a>
+      <a href="#icons" title="Contatos">
+        <i class="fa fa-envelope-o fa-2x"></i>
+      </a>
+      <a href="#project" title="Conhecimentos/Experiência">
+        <i class="fa fa-address-book-o fa-2x"></i>
+      </a>
+      <a href="#education" title="Faculdade">
+        <i class="fa fa-graduation-cap fa-2x"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Criando a box principal e suas divisões-->
+  <div class="main">
+    <div class="name">Denzel Washington</div>
+    <div class="title">
+      <h1 class="titulo">Desenvolvedor Front-End</h1>
+    </div>
+    <div class="image"></div>
+
+    <!-- Criando as tags "a" para ao clicar, os links direcionem para outra pagina, o "target" para abrir uma nova guia e o "i" para os icones.-->
+    <nav id="icons">
+      <a target="_blank" href="https://www.linkedin.com/in/denzel-washington-45ba2a286/">
+        <i class="fa fa-linkedin fa-2x"></i>
+      </a>
+      <a target="_blank" href="https://github.com/Denzel-W">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      <a href="javascript:void(0);" onclick="toggleContactForm()">
+        <i class="fa fa-envelope fa-2x"></i>
+      </a>
+      <a target="_blank" href="https://web.whatsapp.com/send?phone=5565992753031">
+        <i class="fa fa-whatsapp fa-2x"></i>
+      </a>
+    </nav>
+
+    <!--Criando a box sobre a minha pessoa.-->
+    <div id="about">
+      <p class="branco">
+        Sou apaixonado por tecnologia e desenvolvimento web, brasileiro e nascido em 1997.<br />
+        Sou estudante de Análise e Desenvolvimento de Sistemas na Centro
+        Universitário Internacional Uninter.<br />
+        Busco aprimorar meus conhecimentos e me desenvolver cada vez mais como
+        Desenvolvedor FrontEnd.<br />
+        Tenho facilidade em aprender e me adaptar a qualquer ambiente, e adoro
+        desafios.
+      </p>
+    </div>
+
+    <!-- Criando a seção de Contato com formulário (inicialmente escondido) -->
+    <div id="contact-form" style="display:none;">
+      <h2 class="branco">Contato</h2>
+      <form action="#" method="post" onsubmit="validateForm(event)">
+        <div class="form-field">
+          <label for="name" class="branco">Nome:</label>
+          <input type="text" id="name" name="name" placeholder="Seu nome" required />
+        </div>
+        <div class="form-field">
+          <label for="email" class="branco">E-mail:</label>
+          <input type="email" id="email" name="email" placeholder="Seu e-mail" required />
+        </div>
+        <div class="form-field">
+          <label for="message" class="branco">Mensagem:</label>
+          <textarea id="message" name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Enviar</button>
+        <button type="button" onclick="toggleContactForm()" class="close-button">Fechar</button>
+      </form>
+    </div>
+
+    <!--Criando a box para as minhas habilidades-->
+    <div class="skills">
+      <div class="front-end">
+        <i class="fa fa-desktop fa-2x"></i>
+        <h1 class="branco">Desenvolvedor Front-End</h1>
+        <ul>
+          <li class="competence">HTML</li>
+          <li class="competence">CSS</li>
+        </ul>
+      </div>
+      <div class="database">
+        <i class="fa fa-database fa-2x"></i>
+        <h1 class="branco">Database</h1>
+        <ul>
+          <li class="competence">PostgreSQL</li>
+          <li class="competence">MySQL</li>
+        </ul>
+      </div>
+    </div>
+
+    <!--Criando a box para os meus projetos/experiência.-->
+    <div class="box-project">
+      <i class="fa fa-cogs fa-2x"></i>
+      <div id="project">
+        <h1 class="title-project">Meus projetos</h1>
+      </div>
+      <div class="content">
+        <h3 class="curriculum">Projeto Curriculo Web</h3>
+        <p class="branco">
+          Esse projeto foi desenvolvido utilizando somente HTML e CSS, além
+          dos conceitos de responsividade, com o intuito de ser o meu
+          curriculo virtual, além de praticar e aprimorar as minhas
+          habilidades com o Front-End.
+        </p>
+      </div>
+    </div>
+    <div id="education">
+      <div class="education-content">
+        <i class="fa fa-graduation-cap fa-2x"></i>
+        <h1 class="facul">Faculdade</h1>
+        <h5>
+          2023-2026 | Cursando Análise e Desenvolvimento de Sistemas - UNINTER
+        </h5>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
